@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='mobile-style.css')}}">
+
+        <title>Among the Universe</title>
+    </head>
+
+    <body>
+        <div class="worlds-body">
+            <h1>Explore planets in our universe!</h1>
+            <p>Try generating a random planet first to see what informations about
+                a planet you can find on this site!
+            </p>
+            <p>
+                Then, go ahead and browse the list of planets which have similar 
+                characteristics as our Earth in terms of size (radius), mass,
+                 or orbital period! You can also view a list of all planets that have 
+                 been discovered so far (as of Nov 2020).
+            </p>
+
+            <div class="generate-random">
+                <a href="{{url_for('randomPlanet')}}"><div class="generate-button">
+                    <h2>Find a random planet!</h2>
+                </div></a>
+            </div>
+
+            <p><em>Browse planets with similar characteristics as the Earth:</em></p>
+            <div class="links-box">
+                <div id="mass-box">
+                    <a href="{{url_for('planetList', ref='mass')}}"><div class="props">
+                        <p>List of planets with similar mass as the Earth</p>
+                    </div></a>
+                </div>
+                <div id="size-box">
+                    <a href="{{url_for('planetList', ref='size')}}"><div class="props">
+                        <p>List of planets with similar size as the Earth</p>
+                    </div></a>
+                </div>
+                <div id="orb-box">
+                    <a href="{{url_for('planetList', ref='orb')}}"><div class="props">
+                        <p>List of planets with similar orbital period as the Earth</p>
+                    </div></a>
+                </div>
+                <div id="all-pl">
+                    <a href="{{url_for('planetList', ref='all')}}"><div class="props">
+                        <p>List of all exoplanets discovered so far!</p>
+                    </div></a>
+                </div>
+            </div>
+            
+            <a href="{{url_for('index')}}">Go back to Homepage</a>
+        </div>
+    </body>
+    <footer>
+        <hr>
+        <p>This page is created by Junita as a Creatica project (November 2020). <a href="{{url_for('motivationabout')}}"><span>Motivation & About this Project</span></a></p>
+    </footer>
+</html>

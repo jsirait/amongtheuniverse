@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='mobile-style.css')}}">
+
+        <title>Planet</title>
+    </head>
+
+    <body>
+        <div class="worlds-body">
+            <h1>{{pl_name}}</h1>
+            <div class="planet-info">
+            <table>
+                <tr>
+                    <td>Discovery method</td>
+                    <td>: {{pl_discmethod}}*</td>
+                </tr>
+                <tr>
+                    <td>Orbit Period</td>
+                    <td>: {{pl_orbper}} days 
+                        (one year in this planet is 
+                        {{pl_orbper}} days long!)</td>
+                </tr>
+                <tr>
+                    <td>Planet Radius</td>
+                    <td>: {{pl_radj}} times the radius of Earth</td>
+                </tr>
+                <tr>
+                    <td>Planet Mass</td>
+                    <td>: {{pl_bmassj}} times the mass of Earth</td>
+                </tr>
+                <tr>
+                    <td>Planet Density</td>
+                    <td>: {{pl_dens}} g/cm³</td>
+                </tr>
+            </table>
+        </div>
+
+        <p><em>For comparison, here's Earth's data:</em></p>
+        <h1>Earth</h1>
+        <div class="earth-info">
+            <table>
+                <tr>
+                    <td>Orbit Period</td>
+                    <td>: 365 days</td>
+                </tr>
+                <tr>
+                    <td>Planet Radius</td>
+                    <td>: 3,958.8 mi</td>
+                </tr>
+                <tr>
+                    <td>Planet Mass</td>
+                    <td>: 5.9722 x 10^24 kilograms</td>
+                </tr>
+                <tr>
+                    <td>Planet Density</td>
+                    <td>: 5.51 g/cm³</td>
+                </tr>
+            </table>
+        </div>
+        {% if pl_radj != "(unknown)" %}
+        <div class="comparison">
+            <h1>Earth and {{pl_name}}* compared side by side</h1>
+            <p>(for size comparison only, not an actual picture of {{pl_name}})</p>
+            <div class="ep-images">
+                <div id="earth-image">
+                    <p><b>Earth</b></p>
+                    <figure style="width: fit-content">
+                        <img src="{{url_for('static', filename='earth.png')}}" style="width:{{100/pl_radj}}%; height:{{100/pl_radj}}%">
+                    </figure>
+                </div>
+                <div id="planet-image">
+                    <p><b>{{pl_name}}</b></p>
+                    <img src="{{url_for('static', filename='planet.png')}}"> 
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="further comparison">
+            {% if pl_radj != "(unknown)" %}
+            <p>
+                {{pl_name}} is {% if pl_radj < 1%}smaller{% else %}larger{% endif %} than
+                the Earth.
+            </p>
+            {% endif %}
+            
+            {% if pl_dens != "(unknown)" %}
+            <p>
+                It is also {% if pl_dens < 5.51%}less{% else %}more{% endif %} dense than 
+                the Earth.
+            </p>
+            {% endif %}
+
+            <p>
+                {% if pl_radj != "(unknown)" and pl_dens != "(unknown)" and pl_radj < 1 and pl_dens > 5.51 %}
+                {{pl_name}} is smaller than the Earth but it is more dense! This tells us that 
+                {{pl_name}} is even more rocky than the Earth.
+                {% endif %}
+
+                {% if pl_bmassj != "(unknown)" and pl_dens != "(unknown)" and pl_bmassj > 1 and pl_dens < 5.51 %}
+                {{pl_name}} is larger than the Earth but it is less dense! This tells us that 
+                {{pl_name}} might be made of elements less dense than Earth substituents. For 
+                example, {{pl_name}} may be a gas giant, just like Jupyter!
+                {% endif %}
+            </p>
+        </div>
+
+        <div class="generate-random">
+            <a href="{{url_for('randomPlanet')}}"><div class="generate-button">
+                <h3>Find a random planet!</h3>
+            </div></a>
+        </div>
+
+        <div class="notes">
+            <h3>P.S.:</h3>
+            <p>Read more about planet discovery methods (Transit, Radial Velocity, etc.)  
+                <a href="https://exoplanets.nasa.gov/alien-worlds/ways-to-find-a-planet/">
+                    <span style="text-decoration: underline;">here</span></a></p>
+        </div>
+
+        <a href="{{url_for('index')}}">Go back to Homepage</a>
+        </div>
+    </body>
+    <footer>
+        <hr>
+        <p>This page is created by Junita as a Creatica project (November 2020). <a href="{{url_for('motivationabout')}}"><span>Motivation & About this Project</span></a></p>
+    </footer>
+</html>

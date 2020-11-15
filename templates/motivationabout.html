@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Motivation & About</title>
+</head>
+<body>
+    <div class="sections11">
+        <div class="section-about">
+            <h1>Credits</h1>
+            <p>This project uses the following:</p>
+            <ul>
+                <li>NASA's open API (Exoplanet): <a href="https://api.nasa.gov/index.html">https://api.nasa.gov/index.html</a></li>
+            </ul>
+        </div>
+        <div class="section-motivation">
+            <h1>Motivation</h1>
+            <p>This project is inspired by my introductory Astronomy class and it comes about during the COVID-19 pandemic. 
+                As we all are well too aware, the pandemic has wrecked havoc not only physically, but also 
+                mentally for so many people. I struggled to keep my mind from worrying about the pandemic, until I first 
+                attended my introductory Astronomy class where the prof talked about the universe, how <em>big and old</em> it is,
+                and how many galaxies are in it, also how we (everything that exists in this universe) are <em>all</em> 
+                connected to one another. I suddenly feel less isolated and less overwhelmed. The Earth is just a tiny little dot 
+                in the universe, and you and I are <em>very</em> fortunate to live right here right now, when the Earth is habitable, 
+                and in an era of peace. Compared to the universe, we do not last very long, and so why waste that short time 
+                worrying?
+            </p>
+            <p>I come up with this website, <em>Among the Universe</em>, to hopefully help make other people feel less worried and 
+                less overwhelmed during this pandemic by looking at the (actual) big picture of our existence.
+            </p>
+        </div>
+        <div>
+            <a href="{{url_for('index')}}"><p>Go back to home page</p></a>
+        </div>
+    </div>
+</body>
+
+<footer>
+    <hr>
+    <p>This page is created by Junita as a Creatica project (November 2020). <a href="{{url_for('motivationabout')}}"><span>Motivation & About this Project</span></a></p>
+</footer>
+
+</html>
