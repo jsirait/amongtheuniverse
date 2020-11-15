@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='mobile-style.css')}}">
+
+        <title>Planet List</title>
+    </head>
+
+    <body>
+        <div class="worlds-body">
+            <h1>{{table_title}}</h1>
+            <p>Number of planets listed here: {{num_planets}}</p>
+            <table id = "planet-table" border="1">
+                <thead>
+                    <th>Planet Name</th>
+                    <th>Radius (times Earth radius)</th>
+                    <th>Mass (times Earth mass)</th>
+                    <th>Density</th>
+                    <th>Orbital Period</th>
+                    <th>Discovery method</th>
+                </thead>
+                <tbody>
+                    {% for planet in planetTable %}
+                    <tr>
+                        <td><a href="{{url_for('specificPlanet', planetName=planet)}}" style="text-decoration: underline;">
+                            {{planet}}</a></td>
+                        <td>{{planetTable[planet]["radius"]}}</td>
+                        <td>{{planetTable[planet]["mass"]}}</td>
+                        <td>{{planetTable[planet]['density']}}</td>
+                        <td>{{planetTable[planet]['orbital period']}}</td>
+                        <td>{{planetTable[planet]['discovery method']}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="worlds-body">
+            <a href="{{url_for('index')}}">Go back to Homepage</a>
+        </div>
+    </body>
+    <footer>
+        <hr>
+        <p>This page is created by Junita as a Creatica project (November 2020). <a href="{{url_for('motivationabout')}}"><span>Motivation & About this Project</span></a></p>
+    </footer>
+</html>

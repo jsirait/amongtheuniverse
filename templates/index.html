@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='mobile-style.css')}}">
+
+        <title>Among the Universe</title>
+    </head>
+
+    <body>
+        <div class="main-row">
+
+            <div class="column" id="stars-column">
+                <h1 style="font-size: xxx-large;">Among the Universe</h1>
+                <p>
+                    This website is made and presented to remind us of out place in the universe.
+                    The universe we live in is <em>pretty darn big</em>, with so many galaxies, stars, planets, and
+                    other matters in it. To give you a faint idea of how big our universe is: it would take us 
+                    about <a href="https://exoplanets.nasa.gov/blog/1563/our-milky-way-galaxy-how-big-is-space/">
+                        100,000 years to cross our galaxy (the Milky Way) from one edge to another, if we travel 
+                    at the speed of light</a>. That's just our galaxy -- it is estimated that the universe 
+                    has <a href="https://www.nasa.gov/feature/goddard/2016/hubble-reveals-observable-universe-contains-10-times-more-galaxies-than-previously-thought">
+                        <em>two hundred billion</em></a> galaxies!
+                </p>
+                <p>
+                    Our Earth really is just a tiny little dot in the universe. Our existence is just a fraction of a second of
+                     the universe's age. 
+                </p>
+                <p>
+                     So next time when we feel overwhelmed, may we remember to look at 
+                     the (actual) big picture and may we be able to take a deep breath and appreciate our 
+                     existence right now in this big thing we call the universe. 
+                </p>
+                <div class="milky-way">
+                    <img class="milky-way" src="{{url_for('static', filename='milky-way.jpg')}}" alt="image of the Milky Way">
+                    <p><em>Milky Way galaxy</em></p>
+                </div>
+                
+                
+            </div>
+
+            <div class="column" id="worlds-column">
+                <p><b>Without further ado, let's begin exploring the worlds outside our own by clicking the button below!</b></p>
+                <a href="{{url_for('forWorlds')}}"><div class="worlds-box">
+                    <h1>Explore Worlds</h1>
+                    <p><b>Click here!</b> to explore planets that have been detected in 
+                        our universe and see how they compare to Earth!
+                    </p>
+                </div></a>
+            </div>
+
+        </div>
+    </body>
+    <footer>
+        <hr>
+        <p>This page is created by Junita as a Creatica project (November 2020). <a href="{{url_for('motivationabout')}}"><span>Motivation & About this Project</span></a></p>
+    </footer>
+</html>
